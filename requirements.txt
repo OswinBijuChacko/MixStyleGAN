@@ -1,0 +1,23 @@
+# Core diffusion stack
+torch>=2.0.0
+diffusers>=0.27.0          # ip_adapter_masks support
+transformers>=4.40.0
+accelerate>=0.30.0
+peft>=0.10.0
+safetensors>=0.4.0
+
+# ControlNet preprocessing
+controlnet_aux>=0.0.7
+opencv-python>=4.8.0
+
+# UI
+gradio>=4.20.0             # ImageEditor with brush color_mode
+
+# Imaging
+Pillow>=9.0.0
+
+# Pin numpy below 2.0 — diffusers/transformers wheels were compiled
+# against numpy 1.x and break with the 2.x ABI ("dtype size changed,
+# may indicate binary incompatibility"). Remove the upper bound once
+# upstream wheels ship for numpy 2.x.
+numpy>=1.24.0,<2.0

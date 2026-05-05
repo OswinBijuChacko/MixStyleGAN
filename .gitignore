@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.cursor/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Model caches and weights
+*.ckpt
+*.pth
+*.safetensors
+*.bin
+.cache/
+hub/
+
+# Legacy CycleGAN training artifacts
+checkpoints/
+generated_images/
+output/
+
+# Training data folders (keep structure, ignore contents)
+content_images/*
+!content_images/.gitkeep
+style_images/*
+!style_images/.gitkeep
+
+# Working files
+_patch_notebook.py
+_*.py
+*.tmp
+
+# Local dev outputs (curate into examples/results/ instead)
+result.webp
+cannyedges.webp
+image.webp
+image*.webp
+
+# Environment
+.env
+.env.local
