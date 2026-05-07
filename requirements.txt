@@ -16,6 +16,11 @@ gradio>=4.20.0             # ImageEditor with brush color_mode
 # Imaging
 Pillow>=9.0.0
 
+# Python 3.13 removed `audioop` from stdlib; pydub (a Gradio dep)
+# still imports it. audioop-lts is the standalone backport. Only
+# pulled on 3.13+; ignored on the 3.11 we pin in the HF Space YAML.
+audioop-lts; python_version >= "3.13"
+
 # Pin numpy below 2.0 — diffusers/transformers wheels were compiled
 # against numpy 1.x and break with the 2.x ABI ("dtype size changed,
 # may indicate binary incompatibility"). Remove the upper bound once
