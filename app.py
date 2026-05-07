@@ -36,11 +36,12 @@ with gr.Blocks(title="MixStyleGAN — 2-Style Painting Blender") as demo:
             with gr.Row():
                 content_in = gr.Image(label="Content", type="pil", height=220)
                 mask_editor = gr.ImageEditor(
-                    label="Paint over Sir Quack to mark the Style A region (untouched area = Style B)",
+                    label="Paint a region for Style A — click the brush icon in the editor toolbar, then drag (untouched area = Style B)",
                     type="pil",
                     sources=["upload"],
-                    height=260,
-                    brush=gr.Brush(colors=["#FFFFFF"], color_mode="fixed", default_size=40),
+                    height=300,
+                    image_mode="RGBA",
+                    brush=gr.Brush(default_size=40, colors=["#FFFFFF"]),
                     eraser=gr.Eraser(default_size=40),
                 )
 
