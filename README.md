@@ -215,7 +215,7 @@ git remote add space https://huggingface.co/spaces/<your-username>/mixstylegan
 git push space main
 ```
 
-Free CPU tier serves as code reference only (3–5 min/image). For a usable demo, enable ZeroGPU (HF Pro, $9/mo) or a paid T4 Space ($0.40/hr while active).
+Free CPU tier serves as code reference only (3–5 min/image).
 
 ### Run locally
 
