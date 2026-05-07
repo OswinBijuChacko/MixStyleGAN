@@ -10,10 +10,18 @@ safetensors>=0.4.0
 controlnet_aux>=0.0.7
 opencv-python>=4.8.0
 
-# UI — Gradio 5.x is required for huggingface_hub>=1.0 compatibility.
-# (Gradio 4.x's oauth module imports `HfFolder`, which was removed in
-#  huggingface_hub 1.0. HF Spaces ships hub 1.x in its base image.)
+# UI — Gradio (matches sdk_version in README YAML; HF Spaces also
+# installs gradio[oauth]==<sdk_version> in its build script, which
+# pulls in oauth.py).
 gradio>=5.0.0
+
+# Pin huggingface_hub to the 0.x API line. Both Gradio 4.x and 5.x
+# (as of Q1 2026) still import `HfFolder` from huggingface_hub in
+# their oauth.py — that name was removed in hub 1.0. Without this
+# pin, every Space build crashes at `import gradio` with:
+#   ImportError: cannot import name 'HfFolder' from 'huggingface_hub'
+# 0.30 is HF Spaces' minimum (they install hf-transfer alongside).
+huggingface_hub>=0.30,<1.0
 
 # Imaging
 Pillow>=9.0.0
