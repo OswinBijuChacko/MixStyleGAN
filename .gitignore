@@ -47,11 +47,8 @@ checkpoints/
 generated_images/
 output/
 
-# Training data folders (keep structure, ignore contents)
-content_images/*
-!content_images/.gitkeep
-style_images/*
-!style_images/.gitkeep
+# Working content folder (curated inputs go in examples/ instead)
+content_images/
 
 # Working files
 _patch_notebook.py
