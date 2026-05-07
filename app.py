@@ -36,11 +36,11 @@ with gr.Blocks(title="MixStyleGAN — 2-Style Painting Blender") as demo:
             with gr.Row():
                 content_in = gr.Image(label="Content", type="pil", height=220)
                 mask_editor = gr.ImageEditor(
-                    label="Paint a region for Style A — click the brush icon in the editor toolbar, then drag (untouched area = Style B)",
+                    label="Paint a region for Style A (untouched area = Style B). Use the brush in the toolbar.",
                     type="pil",
                     sources=["upload"],
                     height=300,
-                    image_mode="RGBA",
+                    interactive=True,
                     brush=gr.Brush(default_size=40, colors=["#FFFFFF"]),
                     eraser=gr.Eraser(default_size=40),
                 )
@@ -82,8 +82,15 @@ with gr.Blocks(title="MixStyleGAN — 2-Style Painting Blender") as demo:
                 mask_view = gr.Image(label="Mask (debug)", type="pil", height=180)
                 canny_view = gr.Image(label="Canny (live)", type="pil", height=180)
 
-    # Auto-load uploaded content into the mask editor as background
-    content_in.change(lambda img: img, content_in, mask_editor)
+    # Auto-load uploaded content into the mask editor as background.
+    # ImageEditor expects a dict, not a raw PIL Image — passing a bare PIL
+    # silently puts the editor in read-only mode (no brush toolbar).
+    def _content_to_editor(img):
+        if img is None:
+            return None
+        return {"background": img, "layers": [], "composite": img}
+
+    content_in.change(_content_to_editor, content_in, mask_editor)
 
     # Live Canny preview when content or thresholds change
     for trigger in (content_in, canny_low, canny_high):
