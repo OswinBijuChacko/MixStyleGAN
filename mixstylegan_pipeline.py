@@ -53,21 +53,31 @@ _dtype: torch.dtype = torch.float16
 
 
 def load_pipeline(
-    device: str = "cuda",
-    dtype: torch.dtype = torch.float16,
+    device: str | None = None,
+    dtype: torch.dtype | None = None,
 ) -> StableDiffusionControlNetPipeline:
-    """Load all models. First call downloads ~3.5 GB and caches them."""
+    """Load all models. First call downloads ~3.5 GB and caches them.
+
+    If `device` is None, auto-detects: "cuda" if available, else "cpu".
+    If `dtype` is None, picks float16 for CUDA, float32 for CPU.
+    CPU inference works but takes 3-5 minutes per image.
+    """
     global _pipe, _mask_processor, _device, _dtype
     if _pipe is not None:
         return _pipe
 
+    if device is None:
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+    if dtype is None:
+        dtype = torch.float16 if device == "cuda" else torch.float32
+
     if device == "cuda" and not torch.cuda.is_available():
         raise RuntimeError(
-            "CUDA not available. MixStyleGAN requires an NVIDIA GPU. "
-            "Run on Colab (T4 free tier works), Hugging Face Spaces, or "
-            "any machine with a CUDA-capable card."
+            "device='cuda' explicitly requested but CUDA isn't available. "
+            "Pass device='cpu' to fall back, or run on a CUDA-capable host."
         )
 
+    print(f"[MixStyleGAN] Loading pipeline on {device} with dtype {dtype}")
     _device = device
     _dtype = dtype
 
