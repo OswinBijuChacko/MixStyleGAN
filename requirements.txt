@@ -36,3 +36,11 @@ audioop-lts; python_version >= "3.13"
 # may indicate binary incompatibility"). Remove the upper bound once
 # upstream wheels ship for numpy 2.x.
 numpy>=1.24.0,<2.0
+
+# Pin pydantic below 2.10. Pydantic 2.10+ emits `additionalProperties: true`
+# (a bool) for dict types in JSON Schema. Gradio's gradio_client/utils.py
+# parser assumes additionalProperties is always a dict, and crashes the
+# /api_info endpoint with `TypeError: argument of type 'bool' is not iterable`
+# when introspecting our generate() function (mask_editor is a dict).
+# Removing this once gradio_client handles bool schemas (5.10+? unclear).
+pydantic>=2.0,<2.10
