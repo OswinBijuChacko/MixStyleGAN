@@ -1,9 +1,3 @@
----
-title: MixStyleGAN
-sdk: gradio
-sdk_version: 4.44.0
-app_file: app.py
----
 
 <div align="center">
 
@@ -314,7 +308,13 @@ Built on top of:
 
 Sir Quack is the project's mascot and your gracious model. He thanks you for your attention.
 
-This project — the pipeline refactor from the original CycleGAN scaffold, the dual-ControlNet integration, the spatial mask plumbing, this README, and the long debugging conversations along the way — was built collaboratively with **Claude** (Anthropic). The model architecture decisions, the empirical observations about edge density and style fragility, and the structure of the eight-movement showcase all came out of an extended back-and-forth across many sessions. Recommended.
+This project — the pipeline refactor from the original CycleGAN scaffold, the dual-ControlNet integration, the spatial mask plumbing, this README, and the long debugging conversations along the way — was built collaboratively with **Claude** (Anthropic). Recommended.
+---
+title: MixStyleGAN
+sdk: gradio
+sdk_version: 4.44.0
+app_file: app.py
+---
 
 ---
 
