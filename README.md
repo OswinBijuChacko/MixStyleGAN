@@ -1,13 +1,8 @@
 ---
 title: MixStyleGAN
-emoji: 🎨
-colorFrom: blue
-colorTo: yellow
 sdk: gradio
 sdk_version: 4.44.0
 app_file: app.py
-pinned: false
-license: mit
 ---
 
 <div align="center">
@@ -26,11 +21,13 @@ license: mit
 
 ### Sir Quack — gentleman, monocle, perpetually nineteen-twenties
 
-<img src="examples/results/subject_sir_quack.png" width="380" align="right">
+<img src="examples/results/subject_sir_quack.png" width="260" align="right">
 
-This is **Sir Quack**. He has been every artist's model for the duration of this project. He arrived as a single high-resolution digital portrait — a goose in a red pinstripe suit, monocle wire trailing down his neck, coral bowtie, the pristine white shirt of a man who has somewhere important to be — and he has graciously held still while the algorithm tried to render him in the visual language of a dozen different art movements.
+This is **Sir Quack** — every artist's model for the duration of this project.
 
-He never complains. He never blinks. He wears the monocle in *every* style, even the ones that aren't supposed to allow monocles.
+He arrived as a single high-resolution digital portrait — a goose in a red pinstripe suit, monocle wire trailing down his neck, coral bowtie, pristine white shirt — and he has graciously held still while the algorithm tried to render him in the visual language of a dozen art movements.
+
+He never complains. He never blinks. He wears the monocle in *every* style, even the ones that aren't supposed to allow monocles. The bowtie occasionally goes missing in Picasso's Blue Period — a known artifact of the model's color-region contention, not Sir Quack's choice.
 
 He is, for the purposes of this README, your subject.
 
