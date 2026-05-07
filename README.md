@@ -161,6 +161,14 @@ Each style's "vote" only counts where its mask is 1. The two votes never overlap
 
 You paint where you want Style A. The complement automatically becomes Style B. The math handles the rest.
 
+### What it looks like, end-to-end
+
+<p align="center">
+  <img src="examples/app_ui.png" alt="MixStyleGAN app UI mid-generation" width="100%">
+</p>
+
+The Gradio app, mid-spatial-mix. From left to right: the **Content** image (Sir Quack), the **paintable mask** with the duck silhouette in white (Style A region), the **two style references**, the **weight + color-preservation sliders**, the **Generate** button, the **Canny sensitivity** controls — and on the right, the **result**, plus debug previews of the mask and Canny edge map. Every knob in the README's "What you control" table is on this screen. No Photoshop. No twenty-tab-Stable-Diffusion-WebUI ritual. Just upload, paint, drag, generate.
+
 ### Why the simpler approaches fail
 
 | Approach | What goes wrong |
@@ -305,6 +313,8 @@ Built on top of:
 - [Gradio](https://github.com/gradio-app/gradio)
 
 Sir Quack is the project's mascot and your gracious model. He thanks you for your attention.
+
+This project — the pipeline refactor from the original CycleGAN scaffold, the dual-ControlNet integration, the spatial mask plumbing, this README, and the long debugging conversations along the way — was built collaboratively with **Claude** (Anthropic). The model architecture decisions, the empirical observations about edge density and style fragility, and the structure of the eight-movement showcase all came out of an extended back-and-forth across many sessions. Recommended.
 
 ---
 
