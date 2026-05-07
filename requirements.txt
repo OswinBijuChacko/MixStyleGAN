@@ -10,8 +10,10 @@ safetensors>=0.4.0
 controlnet_aux>=0.0.7
 opencv-python>=4.8.0
 
-# UI
-gradio>=4.20.0             # ImageEditor with brush color_mode
+# UI — Gradio 5.x is required for huggingface_hub>=1.0 compatibility.
+# (Gradio 4.x's oauth module imports `HfFolder`, which was removed in
+#  huggingface_hub 1.0. HF Spaces ships hub 1.x in its base image.)
+gradio>=5.0.0
 
 # Imaging
 Pillow>=9.0.0
