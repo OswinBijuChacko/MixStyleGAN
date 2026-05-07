@@ -1,10 +1,4 @@
----
-title: MixStyleGAN
-sdk: gradio
-sdk_version: 5.23.1
-app_file: app.py
-python_version: "3.11"
----
+
 <div align="center">
 
 # MixStyleGAN
